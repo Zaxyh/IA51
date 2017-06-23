@@ -1,0 +1,11 @@
+/** 
+ * 
+ */
+package environnement
+/** 
+ * @author Leo-MEYER
+ * 
+ */
+class RoadSign extends EnvironmentObj {
+	
+}

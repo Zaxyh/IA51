@@ -1,0 +1,10 @@
+/** 
+ * 
+ */
+package environnement
+/** 
+ * @author Leo-MEYER
+ * 
+ */
+class DriverBody extends AgentBody {
+}

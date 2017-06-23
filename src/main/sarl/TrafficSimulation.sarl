@@ -1,0 +1,29 @@
+/** 
+ * 
+ */
+/** 
+ * @author Leo-MEYER
+ * 
+ */
+ 
+import io.janusproject.Boot
+import io.janusproject.util.LoggerCreator
+import ^agent.Environment
+import ui.CityGUI
+import java.util.logging.Level
+
+class TrafficSimulation {
+	/** Number of drivers at the start-up.
+	 */
+	public static val NB_CARS = 5
+
+	static def main(args : String[]) : void {
+		Boot::setOffline(true)
+		Boot::setVerboseLevel(LoggerCreator::toInt(Level::INFO))
+		Boot::showJanusLogo
+
+		var ui = new CityGUI
+
+		Boot::startJanus(typeof(Environment), NB_CARS, ui)
+	}
+}
