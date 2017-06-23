@@ -1,0 +1,68 @@
+/** 
+ * 
+ */
+package graph
+
+import math.Point2f
+import environnement.EnvironmentObj
+/** 
+ * @author Zaxyh
+ * 
+ */
+class Graph1DNode {
+	/** Arcs qui partent depuis cette node
+	 */
+	val arcsFrom = <Graph1DArc>newArrayList
+	/** Arcs qui arrivent vers cette node
+	 */
+	val arcsTo = <Graph1DArc>newArrayList
+	val position : Point2f
+	
+	new (x : float, y : float)
+	{
+		position = new Point2f(x,y)
+	}
+	
+	def getPosition() : Point2f
+	{
+		position	
+	}
+	
+	/** Ajoute un arc depuis cette node vers une node to
+	 */
+	def addArcTo(to : Graph1DNode)
+	{
+		var arc = new Graph1DArc(this, to)
+		arcsFrom += arc
+		to.arcsTo += arc
+	}
+	
+	/** Ajoute un arc depuis une node from vers cette node
+	 */
+	def addArcFrom(from : Graph1DNode)
+	{
+		var arc = new Graph1DArc(from, this)
+		arcsTo += arc
+		from.arcsFrom += arc 
+	}
+	
+	def getNumArcsFrom()
+	{
+		arcsFrom.size
+	}
+	
+	def getArcsFrom()
+	{
+		arcsFrom
+	}
+
+	def getNumArcsTo() 
+	{
+		arcsTo.size
+	}
+	
+	def getArcsTo()
+	{
+		arcsTo
+	}
+}

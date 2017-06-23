@@ -1,0 +1,47 @@
+/** 
+ * 
+ */
+package graph
+
+import java.lang.ref.WeakReference
+import java.util.Collection
+import java.util.Collections
+import environnement.EnvironmentObj
+/** 
+ * @author Zaxyh
+ * 
+ */
+class Graph1DArc {
+	val from : WeakReference<Graph1DNode>
+	val to : WeakReference<Graph1DNode>
+	val distance : float
+		
+	val objects = <EnvironmentObj>newArrayList
+	
+	new (f : Graph1DNode, t : Graph1DNode)
+	{
+		from = new WeakReference<Graph1DNode>(f)
+		to = new WeakReference<Graph1DNode>(t)
+		distance = f.position.distance(t.position)
+	}
+	
+	def addObject(t : EnvironmentObj)
+	{
+		objects += t
+	}
+	
+	def getFrom() : Graph1DNode
+	{
+		from.get
+	}
+	
+	def getTo() : Graph1DNode
+	{
+		to.get
+	}
+	
+	def getObjects() : Collection<EnvironmentObj>
+	{
+		Collections.unmodifiableList(objects)
+	}
+}
